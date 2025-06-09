@@ -1,0 +1,44 @@
+/*Lilah has a string, s, of lowercase English letters that she repeated infinitely many times.
+She wants to find out how many times the letter 'a' occurs in the first n characters of the infinite string.
+📥 Input Format:
+A single string s.
+An integer n.
+
+🧾 Constraints:
+1 <= |s| <= 100
+1 <= n <= 10^12
+s contains only lowercase letters (a-z)
+Input
+aba
+10
+
+Output
+7
+*/
+package tasks;
+import java.util.*;
+public class str_repeat {
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+String s = sc.next();//aba
+long n = sc.nextLong();//10
+long count = 0;
+for(int i=0;i<s.length();i++)
+{
+if(s.charAt(i)=='a'){
+count++;
+}
+}
+long res = (n/s.length()) * count; //10/3=3*2=6
+count=0;
+long left = n % s.length();//10%3=1
+for(int i=0;i<left;i++)
+{
+if(s.charAt(i)=='a'){
+count++;
+}
+}
+res += count;//6+1=7
+System.out.println(res);
+}
+}
